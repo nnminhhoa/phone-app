@@ -1,0 +1,230 @@
+.icon__on__top {
+  position: fixed;
+  content: "";
+  bottom: 20px;
+  right: 20px;
+  color: $txt-second-color;
+  font-size: 2.4rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid $txt-second-color;
+  cursor: pointer;
+  @include flex(center, center);
+  visibility: hidden;
+
+  @include mobile {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+.active__on__top {
+  animation: onTop 0.3s ease;
+  visibility: inherit;
+}
+
+@keyframes onTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.footer {
+  border-top: 1px solid $border-main-color;
+  &__email {
+    @include flex(center, space-between);
+    margin: 40px auto;
+    width: 90%;
+
+    @include tablet {
+      width: 100%;
+    }
+    @include mobile {
+      flex-direction: column;
+    }
+
+    &__title {
+      color: $txt-main-color;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      opacity: 0.8;
+      width: 55%;
+
+      @include tablet {
+        width: 50%;
+        font-size: 1rem;
+      }
+      @include mobile {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    }
+
+    &__input {
+      @include flex(center, flex-start);
+      flex-grow: 1;
+      height: 40px;
+      border-radius: 4px;
+      overflow: hidden;
+
+      @include mobile {
+        width: 80%;
+        height: 35px;
+      }
+      input {
+        flex-grow: 1;
+        height: 100%;
+        border: none;
+        background-color: #e7e7e7;
+        padding: 2px 10px;
+        font-size: 1.15rem;
+        outline: none;
+
+        border-top-right-radius: unset;
+        border-bottom-right-radius: unset;
+
+        &:focus {
+          border: 1px solid #6b6b6b;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+        }
+      }
+
+      button {
+        border: none;
+        outline: none;
+        background-color: $main-color;
+        color: $txt-white;
+        height: 100%;
+        width: 20%;
+        font-size: 1.1rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        @include tablet {
+          width: 30%;
+        }
+
+        @include mobile {
+          font-size: 1rem;
+          width: 25%;
+        }
+
+        &:hover {
+          background-color: #c7633c;
+        }
+      }
+    }
+  }
+
+  &__main {
+    background-color: $main-bg;
+    padding: 40px 0;
+    border-bottom: 1px solid $txt-second-color;
+
+    &__title {
+      color: $txt-white;
+      font-size: 1.4rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    &__content__item:first-child {
+      @include flex(flex-start, flex-start);
+    }
+    &__content {
+      &__item {
+        @include flex(center, flex-start);
+        margin-bottom: 12px;
+        & > i {
+          color: $txt-white;
+          font-size: 1.4rem;
+          margin-right: 15px;
+        }
+
+        p,
+        a {
+          color: $txt-white;
+          font-size: 1.1rem;
+          cursor: pointer;
+          line-height: 1.6rem;
+          transition: all 0.3s ease;
+
+          &:hover {
+            color: $main-color;
+          }
+        }
+
+        &:first-child {
+          p {
+            cursor: text;
+
+            &:hover {
+              color: $txt-white;
+            }
+          }
+        }
+
+        img {
+          width: 90%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        &__icon {
+          width: 36px;
+          height: 36px;
+          background-color: #6d44ff;
+          margin-right: 10px;
+          @include flex(center, center);
+          border-radius: 50%;
+          color: $txt-white;
+          font-size: 1.6rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: $main-color;
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    background-color: $main-bg;
+    padding: 30px 0;
+    &__content {
+      @include flex(center, space-between);
+
+      p {
+        color: $txt-white;
+        font-size: 1.2rem;
+        letter-spacing: 0.5px;
+        margin-right: 20px;
+
+        @include mobile {
+          font-size: 1rem;
+          line-height: 1.5rem;
+        }
+      }
+      &__pay {
+        @include mobile {
+          width: 60%;
+          img {
+            object-fit: cover;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,212 @@
+.slider__main {
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &__content {
+    height: 95vh;
+    outline: none;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+
+      @include tablet {
+        object-position: 80% 0;
+      }
+    }
+    @include tablet {
+      height: 50vh;
+    }
+
+    &__text {
+      width: 8%;
+      position: absolute;
+      top: 50%;
+      margin-left: 120px;
+      transform: translateY(-50%);
+
+      @include tablet {
+        margin-left: 50px;
+        width: 14%;
+      }
+
+      @include mobile {
+        width: 18%;
+      }
+
+      @include mobile {
+        margin-left: 20px;
+      }
+
+      & > * {
+        margin: 20px 0;
+
+        @include tablet {
+          margin: 10px 0;
+        }
+      }
+
+      h4 {
+        color: $txt-white;
+        opacity: 0.9;
+        font-size: 1.8rem;
+
+        @include tablet {
+          font-size: 1.8rem;
+        }
+
+        @include mobile {
+          font-size: 1.3rem;
+        }
+      }
+
+      h1 {
+        color: $txt-white;
+        font-size: 4rem;
+
+        @include tablet {
+          font-size: 3.2rem;
+        }
+
+        @include mobile {
+          font-size: 2.6rem;
+        }
+      }
+
+      p {
+        color: $txt-white;
+        opacity: 0.8;
+        font-size: 1.2rem;
+        word-spacing: 1px;
+        line-height: 1.8rem;
+
+        @include tablet {
+          font-size: 1.5rem;
+          line-height: 2rem;
+        }
+
+        @include mobile {
+          font-size: 1rem;
+        }
+      }
+
+      button {
+        outline: none;
+        padding: 12px 30px;
+        color: $txt-white;
+        background-color: unset;
+        border: 2px solid $txt-white;
+        border-radius: 6px;
+        font-size: 1.25rem;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        @include tablet {
+          padding: 12px 20px;
+          margin-top: 40px;
+        }
+
+        @include mobile {
+          font-size: 1rem;
+          margin-top: 10px;
+        }
+
+        &:hover {
+          background-color: $main-color;
+          border: 2px solid $main-color;
+        }
+      }
+    }
+  }
+
+  &:hover .slider__button {
+    visibility: inherit;
+    opacity: 1;
+
+    &__left {
+      transform: translateX(60%);
+    }
+    &__right {
+      transform: translateX(-60%);
+    }
+  }
+}
+
+.slider__button {
+  @include flex(center, space-between);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+
+  @include tablet {
+    display: none;
+  }
+
+  &__left,
+  &__right {
+    @include flex(center, center);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid $txt-white;
+    color: $txt-white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $main-color;
+      border: 2px solid $main-color;
+    }
+  }
+
+  &__left {
+    left: 0;
+    transform: translateX(30%);
+  }
+  &__right {
+    right: 0;
+    transform: translateX(-30%);
+  }
+}
+.slick-dots {
+  position: absolute;
+  bottom: 8px !important;
+
+  li {
+    button {
+      &::before {
+        color: $txt-white !important;
+        font-size: 0.8rem !important;
+      }
+    }
+  }
+}
+
+.active__slider__text {
+  animation: sliderText .7s ease;
+
+}
+
+@keyframes sliderText {
+  from {
+    transform: translate(40%, -50%);
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    transform: translate(0,-50%);
+    visibility: inherit;
+    opacity: 1;
+  }
+}
